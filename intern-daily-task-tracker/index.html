@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intern Daily Task Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Intern Daily Task Tracker</h1>
+        <p>Manage your daily internship tasks</p>
+
+        <form id="taskForm">
+            <label for="taskName">Task Name</label>
+            <input type="text" id="taskName" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" required></textarea>
+
+            <label for="priority">Priority</label>
+
+            <select id="priority" required>
+                <option value="">Select Priority</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <label for="status">Status</label>
+            <select id="status" required>
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+            </select>
+
+            <label for="taskDate">Date</label>
+            <input type="date" id="taskDate" required>
+
+            <button type="submit">Add Task</button>
+        </form>
+
+        <h2>Task List</h2>
+        <div id="taskList"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
