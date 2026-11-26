@@ -17,7 +17,6 @@ taskForm.addEventListener("submit", function(event) {
     };
 
     tasks.push(task);
-
     displayTasks();
     taskForm.reset();
 });
@@ -37,7 +36,6 @@ function displayTasks() {
         const taskTitle = document.createElement("h3");
         taskTitle.textContent = task.name;
 
-
         const taskDescription = document.createElement("p");
         taskDescription.textContent = task.description;
 
@@ -48,7 +46,8 @@ function displayTasks() {
             " | Date: " + task.date;
 
         const completeButton = document.createElement("button");
-        completeButton.textContent = "Mark as Completed";
+        completeButton.textContent =
+            task.status === "Completed" ? "Completed" : "Mark as Completed";
         completeButton.disabled = task.status === "Completed";
 
         completeButton.addEventListener("click", function() {
@@ -59,11 +58,15 @@ function displayTasks() {
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
-        deleteButton.style.background = "#dc2626";
+        deleteButton.className = "delete-button";
 
         deleteButton.addEventListener("click", function() {
-            tasks.splice(index, 1);
-            displayTasks();
+            const confirmDelete = confirm("Are you sure you want to delete this task?");
+
+            if (confirmDelete) {
+                tasks.splice(index, 1);
+                displayTasks();
+            }
         });
 
         taskCard.appendChild(taskTitle);
@@ -74,4 +77,7 @@ function displayTasks() {
 
         taskList.appendChild(taskCard);
     });
+
 }
+
+displayTasks();
